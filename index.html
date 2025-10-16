@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Формула-1:Эволюция до новой скорости</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #0f172a, #1e293b, #000);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+            z-index: 50;
+        }
+
+        nav .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.875rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+        }
+
+        .logo span:first-child {
+            color: #ef4444;
+        }
+
+        .logo span:last-child {
+            color: white;
+            margin-left: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .nav-links button {
+            background: none;
+            border: none;
+            color: #d1d5db;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding-bottom: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .nav-links button:hover {
+            color: #ef4444;
+        }
+
+        .nav-links button.active {
+            color: #ef4444;
+            border-bottom: 2px solid #ef4444;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            padding-top: 8rem;
+            padding-bottom: 5rem;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(239, 68, 68, 0.1), transparent);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .hero .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.75rem;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: #ef4444;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #d1d5db;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            padding-top: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            font-weight: 700;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #dc2626;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #b91c1c;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            border: 2px solid #ef4444;
+            background: transparent;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 24rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom right, rgba(239, 68, 68, 1), rgba(249, 115, 22, 1));
+            border-radius: 1rem;
+            filter: blur(3rem);
+            opacity: 0.3;
+        }
+
+        .hero-visual-content {
+            position: relative;
+            background: linear-gradient(to bottom right, #dc2626, #ea580c);
+            border-radius: 1rem;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            font-size: 7rem;
+            padding: 2rem;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 1.5rem;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .stats .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(to bottom right, #1e293b, #0f172a);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            background: linear-gradient(to bottom right, rgba(159, 18, 57, 0.3), #0f172a);
+            transform: scale(1.05);
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 1.875rem;
+            font-weight: 900;
+            color: #ef4444;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            margin-top: 0.25rem;
+        }
+
+        /* Main Content Section */
+        .content-section {
+            padding: 5rem 1.5rem;
+        }
+
+        .content-section .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-hidden {
+            display: none;
+        }
+
+        .section-visible {
+            display: block;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 4rem;
+        }
+
+        /* History Section */
+        .era-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .era-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .era-card:hover {
+            transform: scale(1.05);
+        }
+
+        .era-content {
+            padding: 2rem;
+            border-radius: 0.75rem;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        .era-card:hover .era-content {
+            opacity: 1;
+        }
+
+        .era-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .era-year {
+            font-size: 0.875rem;
+            font-weight: 700;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .era-title {
+            font-size: 1.875rem;
+            font-weight: 900;
+            margin-top: 0.5rem;
+        }
+
+        .era-description {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .era-icon {
+            font-size: 2rem;
+            opacity: 0.6;
+        }
+
+        /* Modern Era Section */
+        .modern-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .modern-card {
+            background: linear-gradient(to bottom right, #1e293b, #0f172a);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .modern-card:hover {
+            border-color: #ef4444;
+        }
+
+        .modern-card h3 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .modern-card p {
+            color: #d1d5db;
+            line-height: 1.6;
+        }
+
+        .modern-icon {
+            font-size: 3rem;
+            color: #ef4444;
+        }
+
+        .modern-card-full {
+            grid-column: 1 / -1;
+        }
+
+        /* Timeline Section */
+        .timeline-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+        }
+
+        .timeline-year {
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: #ef4444;
+            min-width: 6rem;
+            transition: color 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-year {
+            color: #fca5a5;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-content {
+            border-color: rgba(239, 68, 68, 0.5);
+        }
+
+        .timeline-event {
+            font-size: 1.25rem;
+            color: #d1d5db;
+            transition: color 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-event {
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(239, 68, 68, 0.2);
+            padding: 3rem 1.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero .container,
+            .stats .container {
+                grid-template-columns: 1fr;
+            }
+
+            .modern-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <span>Формула</span>
+                <span>1</span>
+            </div>
+            <div class="nav-links">
+                <button class="nav-btn active" data-section="history">История</button>
+                <button class="nav-btn" data-section="modern">Сегодня</button>
+                <button class="nav-btn" data-section="timeline">Хронология</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Величайший <span>автоспорт</span></h1>
+<p>Увидьте вершину автомобильной инженерии, человеческого мастерства и соревновательного духа. Где чемпионы куются на скорости более 350 км/ч.</p>
+                <div class="hero-buttons">
+<button class="btn btn-primary">История</button>
+<button class="btn btn-secondary">Текущий сезон</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-visual-content">🏎️</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stat-card">
+               <div class="stat-icon">🏁</div>
+<div class="stat-value">10</div>
+<div class="stat-label">Команды</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">🏎️</div>
+<div class="stat-value">24</div>
+<div class="stat-label">Гонки/Сезон</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">⚡</div>
+<div class="stat-value">372 км/ч</div>
+<div class="stat-label">Рекорд скорости</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon">👑</div>
+<div class="stat-value">34</div>
+<div class="stat-label">Чемпионы мира</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="content-section">
+        <div class="container">
+            <!-- History Section -->
+            <div id="history" class="section-visible">
+             <h2>Из прошлого в настоящее</h2>
+<div class="era-list">
+<div class="era-card">
+<div class="era-content" style="background: linear-gradient(to right, #7f1d1d, #b91c1c); opacity: 0.8;">
+<div class="era-header">
+<div>
+<div class="era-year">1950–1959</div>
+<div class="era-title">Рассвет гонок</div>
+</div>
+<div class="era-icon">🏆</div>
+</div>
+<div class="era-description">Первый чемпионат мира Формулы-1 стартовал в Сильверстоуне. Хуан Мануэль Фанхио доминировал в эту эпоху, выиграв 5 чемпионатов мира благодаря своему виртуозному вождению.</div>
+</div>
+</div>
+<div class="era-card">
+<div class="era-content" style="background: linear-gradient(to right, #854d0e, #d97706); opacity: 0.8;">
+<div class="era-header">
+<div>
+<div class="era-year">1960-1979</div>
+<div class="era-title">Золотой век</div>
+</div>
+<div class="era-icon">🏆</div>
+</div>
+<div class="era-description">Появились такие легенды, как Грэм Хилл, Джеки Стюарт и Айртон Сенна. Инновации в аэродинамике и технологии двигателей двигали этот вид спорта вперёд.</div>
+</div>
+</div>
+<div class="era-card">
+                        <div class="era-content" style="background: linear-gradient(to right, #1e3a8a, #3b82f6); opacity: 0.8;">
+<div class="era-header">
+<div>
+<div class="era-year">1980–1999</div>
+<div class="era-title">Технологическая революция</div>
+</div>
+<div class="era-icon">🏆</div>
+</div>
+<div class="era-description">Эпоха турбонаддува, активной подвески и контроля тяги преобразила Формулу-1. McLaren, Ferrari и Williams доминировали благодаря технологическому превосходству.</div>
+</div>
+</div>
+<div class="era-card">
+<div class="era-content" style="background: linear-gradient(to right, #15803d, #22c55e); opacity: 0.8;">
+<div class="era-header">
+<div>
+<div class="era-year">2000-2019</div>
+<div class="era-title">Эра Ferrari и Mercedes</div>
+</div>
+<div class="era-icon">🏆</div>
+</div>
+<div class="era-description">Михаэль Шумахер завоевал 7 чемпионских титулов для Ferrari. Позже Льюис Хэмилтон и Mercedes образовали беспрецедентную династию.</div>
+</div>
+</div>
+                   <div class="era-card">
+<div class="era-content" style="background: linear-gradient(to right, #581c87, #a855f7); opacity: 0.8;">
+<div class="era-header">
+<div>
+<div class="era-year">2020-настоящее время</div>
+<div class="era-title">Гибридное поколение</div>
+</div>
+<div class="era-icon">🏆</div>
+</div>
+<div class="era-description">Сложные гибридные силовые установки определяют современную Формулу-1. Новые правила направлены на обеспечение устойчивого развития при сохранении высокой производительности и конкурентного баланса.</div>
+</div>
+</div>
+</div>
+</div>
+
+            <!-- Modern Era Section -->
+           <div id="modern" class="section-hidden">
+<h2>Формула-1 сегодня</h2>
+<div class="modern-grid">
+<div class="modern-card">
+<div class="modern-icon">⚡</div>
+<h3>Гибридная силовая установка</h3>
+<p>Современные автомобили Формулы-1 сочетают турбированные двигатели V6 с гибридной электрической системой, развивая мощность более 1050 лошадиных сил при сохранении целевых показателей топливной экономичности.</p>
+</div>
+<div class="modern-card">
+<div class="modern-icon">🌍</div>
+<h3>Глобальный охват</h3>
+<p>24 гонки на культовых трассах по всему миру, от улиц Монако до ночных гонок Сингапура и новых трасс, расширяющих границы автоспорта.</p>
+</div>
+<div class="modern-card modern-card-full">
+<div class="modern-icon">♻️</div>
+<h3>Устойчивое развитие и инновации</h3>
+<p>«Формула-1» стремится к достижению углеродной нейтральности к 2030 году, используя экологичное топливо, инновационные материалы и технологические достижения, чтобы вести автоспортивную индустрию к более экологичному будущему.</p>
+</div>
+</div>
+</div>
+
+         <!-- Раздел «Хронология» -->
+<div id="timeline" class="section-hidden">
+<h2>Ключевые вехи</h2>
+<div class="timeline-list">
+<div class="timeline-item">
+<div class="timeline-year">1950</div>
+<div class="timeline-content">
+<div class="timeline-event">Первый чемпионат мира Формулы-1 в Сильверстоуне</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-year">1961</div>
+<div class="timeline-content">
+<div class="timeline-event">Объём двигателя уменьшен до 1,5 л; Появляются новые требования к безопасности</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-year">1977</div>
+<div class="timeline-content">
+<div class="timeline-event">Начинается революция в области экранного эффекта и аэродинамики</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-year">1994</div>
+<div class="timeline-content">
+<div class="timeline-event">Трагическая авария Сенны подчеркивает необходимость повышения безопасности</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-year">2009</div>
+<div class="timeline-content">
+<div class="timeline-event">Внедрение системы рекуперации кинетической энергии (KERS)</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-year">2014</div>
+<div class="timeline-content">
+<div class="timeline-event">Дебют гибридных силовых установок; возвращение турбокомпрессоров</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-year">2022</div>
+<div class="timeline-content">
+<div class="timeline-event">Автомобили нового поколения и радикальные изменения в регулировании</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-year">2024</div>
+<div class="timeline-content">
+<div class="timeline-event">Упор на устойчивое развитие и конкурентный баланс продолжается</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Вершина автоспорта с 1950 года | Инновации на максимальной скорости</p>
+    </footer>
+
+    <script>
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const sections = document.querySelectorAll('[id="history"], [id="modern"], [id="timeline"]');
+
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const sectionId = button.getAttribute('data-section');
+                
+                // Remove active class from all buttons
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Hide all sections
+                sections.forEach(section => {
+                    section.classList.remove('section-visible');
+                    section.classList.add('section-hidden');
+                });
+                
+                // Show selected section
+                const selectedSection = document.getElementById(sectionId);
+                selectedSection.classList.remove('section-hidden');
+                selectedSection.classList.add('section-visible');
+            });
+        });
+    </script>
+</body>
+</html>
