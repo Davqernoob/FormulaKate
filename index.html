@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Формула-1:Эволюция до новой скорости</title>
+    <title>Формула 1: Эволюция скорости</title>
     <style>
         * {
             margin: 0;
@@ -22,7 +22,6 @@
             overflow-x: hidden;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -84,7 +83,6 @@
             border-bottom: 2px solid #ef4444;
         }
 
-        /* Hero Section */
         .hero {
             position: relative;
             padding-top: 8rem;
@@ -220,7 +218,6 @@
             }
         }
 
-        /* Stats Section */
         .stats {
             padding: 4rem 1.5rem;
             background: rgba(0, 0, 0, 0.5);
@@ -264,7 +261,6 @@
             margin-top: 0.25rem;
         }
 
-        /* Main Content Section */
         .content-section {
             padding: 5rem 1.5rem;
         }
@@ -289,7 +285,6 @@
             margin-bottom: 4rem;
         }
 
-        /* History Section */
         .era-list {
             display: flex;
             flex-direction: column;
@@ -348,7 +343,6 @@
             opacity: 0.6;
         }
 
-        /* Modern Era Section */
         .modern-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -388,7 +382,6 @@
             grid-column: 1 / -1;
         }
 
-        /* Timeline Section */
         .timeline-list {
             display: flex;
             flex-direction: column;
@@ -439,7 +432,82 @@
             color: white;
         }
 
-        /* Footer */
+        .survey-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; 
+            gap: 2rem; 
+            width: 100%;
+            align-items: start; 
+        }
+
+        @media (max-width: 768px) {
+            .survey-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .survey-card {
+            background: linear-gradient(to bottom right, #1e293b, #0f172a);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .survey-question {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .survey-responses {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .pie-chart {
+            width: 100%;
+            height: auto;
+        }
+
+        .legend {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .legend-color {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 0.25rem;
+        }
+
+        .legend-label {
+            font-size: 0.875rem;
+            color: #d1d5db;
+        }
+
+        .legend-percentage {
+            margin-left: auto;
+            font-weight: 700;
+            color: white;
+        }
+
         footer {
             border-top: 1px solid rgba(239, 68, 68, 0.2);
             padding: 3rem 1.5rem;
@@ -448,7 +516,6 @@
             color: #9ca3af;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .hero .container,
             .stats .container {
@@ -475,30 +542,29 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="container">
             <div class="logo">
-                <span>Формула</span>
+                <span>ФОРМУЛА</span>
                 <span>1</span>
             </div>
             <div class="nav-links">
-                <button class="nav-btn active" data-section="history">История</button>
-                <button class="nav-btn" data-section="modern">Сегодня</button>
-                <button class="nav-btn" data-section="timeline">Хронология</button>
+                <button class="nav-btn active" data-section="history">ИСТОРИЯ</button>
+                <button class="nav-btn" data-section="modern">СЕГОДНЯ</button>
+                <button class="nav-btn" data-section="timeline">ХРОНОЛОГИЯ</button>
+                <button class="nav-btn" data-section="fans">ОПРОС</button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Величайший <span>автоспорт</span></h1>
-<p>Увидьте вершину автомобильной инженерии, человеческого мастерства и соревновательного духа. Где чемпионы куются на скорости более 350 км/ч.</p>
+                <h1>Лучший <span>автоспорт</span></h1>
+                <p>Станьте свидетелем вершины автомобильной инженерии, человеческого мастерства и соревновательного духа. Здесь чемпионы рождаются на скорости более 350 км/ч.</p>
                 <div class="hero-buttons">
-<button class="btn btn-primary">История</button>
-<button class="btn btn-secondary">Текущий сезон</button>
+                    <button class="btn btn-primary">Исследуйте историю</button>
+                    <button class="btn btn-secondary">Текущий сезон</button>
                 </div>
             </div>
             <div class="hero-visual">
@@ -507,207 +573,782 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
     <section class="stats">
         <div class="container">
             <div class="stat-card">
-               <div class="stat-icon">🏁</div>
-<div class="stat-value">10</div>
-<div class="stat-label">Команды</div>
-</div>
-<div class="stat-card">
-<div class="stat-icon">🏎️</div>
-<div class="stat-value">24</div>
-<div class="stat-label">Гонки/Сезон</div>
-</div>
-<div class="stat-card">
-<div class="stat-icon">⚡</div>
-<div class="stat-value">372 км/ч</div>
-<div class="stat-label">Рекорд скорости</div>
-</div>
-<div class="stat-card">
-<div class="stat-icon">👑</div>
-<div class="stat-value">34</div>
-<div class="stat-label">Чемпионы мира</div>
+                <div class="stat-icon">🏁</div>
+                <div class="stat-value">10</div>
+                <div class="stat-label">Команды</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏎️</div>
+                <div class="stat-value">24</div>
+                <div class="stat-label">Гонки/Сезон</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">⚡</div>
+                <div class="stat-value">372 km/h</div>
+                <div class="stat-label">Рекорд скорости</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">👑</div>
+                <div class="stat-value">34</div>
+                <div class="stat-label">Чемпионы мира</div>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
     <section class="content-section">
         <div class="container">
-            <!-- History Section -->
             <div id="history" class="section-visible">
-             <h2>Из прошлого в настоящее</h2>
-<div class="era-list">
-<div class="era-card">
-<div class="era-content" style="background: linear-gradient(to right, #7f1d1d, #b91c1c); opacity: 0.8;">
-<div class="era-header">
-<div>
-<div class="era-year">1950–1959</div>
-<div class="era-title">Рассвет гонок</div>
-</div>
-<div class="era-icon">🏆</div>
-</div>
-<div class="era-description">Первый чемпионат мира Формулы-1 стартовал в Сильверстоуне. Хуан Мануэль Фанхио доминировал в эту эпоху, выиграв 5 чемпионатов мира благодаря своему виртуозному вождению.</div>
-</div>
-</div>
-<div class="era-card">
-<div class="era-content" style="background: linear-gradient(to right, #854d0e, #d97706); opacity: 0.8;">
-<div class="era-header">
-<div>
-<div class="era-year">1960-1979</div>
-<div class="era-title">Золотой век</div>
-</div>
-<div class="era-icon">🏆</div>
-</div>
-<div class="era-description">Появились такие легенды, как Грэм Хилл, Джеки Стюарт и Айртон Сенна. Инновации в аэродинамике и технологии двигателей двигали этот вид спорта вперёд.</div>
-</div>
-</div>
-<div class="era-card">
+                <h2>Из прошлого в настоящее</h2>
+                <div class="era-list">
+                    <div class="era-card">
+                        <div class="era-content" style="background: linear-gradient(to right, #7f1d1d, #b91c1c); opacity: 0.8;">
+                            <div class="era-header">
+                                <div>
+                                    <div class="era-year">1950-1959</div>
+                                    <div class="era-title">Рассвет гонок</div>
+                                </div>
+                                <div class="era-icon">🏆</div>
+                            </div>
+                            <div class="era-description">В Сильверстоуне стартовал первый чемпионат мира Формулы-1. Хуан Мануэль Фанхио был лидером той эпохи, выиграв пять чемпионатов мира благодаря своему мастерскому вождению.</div>
+                        </div>
+                    </div>
+                    <div class="era-card">
+                        <div class="era-content" style="background: linear-gradient(to right, #854d0e, #d97706); opacity: 0.8;">
+                            <div class="era-header">
+                                <div>
+                                    <div class="era-year">1960-1979</div>
+                                    <div class="era-title">Золотой век</div>
+                                </div>
+                                <div class="era-icon">🏆</div>
+                            </div>
+                            <div class="era-description">Появились такие легенды, как Грэм Хилл, Джеки Стюарт и Айртон Сенна. Инновации в аэродинамике и технологии двигателей двигали этот вид спорта вперёд.</div>
+                        </div>
+                    </div>
+                    <div class="era-card">
                         <div class="era-content" style="background: linear-gradient(to right, #1e3a8a, #3b82f6); opacity: 0.8;">
-<div class="era-header">
-<div>
-<div class="era-year">1980–1999</div>
-<div class="era-title">Технологическая революция</div>
-</div>
-<div class="era-icon">🏆</div>
-</div>
-<div class="era-description">Эпоха турбонаддува, активной подвески и контроля тяги преобразила Формулу-1. McLaren, Ferrari и Williams доминировали благодаря технологическому превосходству.</div>
-</div>
-</div>
-<div class="era-card">
-<div class="era-content" style="background: linear-gradient(to right, #15803d, #22c55e); opacity: 0.8;">
-<div class="era-header">
-<div>
-<div class="era-year">2000-2019</div>
-<div class="era-title">Эра Ferrari и Mercedes</div>
-</div>
-<div class="era-icon">🏆</div>
-</div>
-<div class="era-description">Михаэль Шумахер завоевал 7 чемпионских титулов для Ferrari. Позже Льюис Хэмилтон и Mercedes образовали беспрецедентную династию.</div>
-</div>
-</div>
-                   <div class="era-card">
-<div class="era-content" style="background: linear-gradient(to right, #581c87, #a855f7); opacity: 0.8;">
-<div class="era-header">
-<div>
-<div class="era-year">2020-настоящее время</div>
-<div class="era-title">Гибридное поколение</div>
-</div>
-<div class="era-icon">🏆</div>
-</div>
-<div class="era-description">Сложные гибридные силовые установки определяют современную Формулу-1. Новые правила направлены на обеспечение устойчивого развития при сохранении высокой производительности и конкурентного баланса.</div>
-</div>
-</div>
-</div>
-</div>
+                            <div class="era-header">
+                                <div>
+                                    <div class="era-year">1980-1999</div>
+                                    <div class="era-title">Технологическая революция</div>
+                                </div>
+                                <div class="era-icon">🏆</div>
+                            </div>
+                            <div class="era-description">Эра турбонаддува, активной подвески и контроля тяги преобразила Формулу-1. McLaren, Ferrari и Williams доминировали благодаря технологическому превосходству.</div>
+                        </div>
+                    </div>
+                    <div class="era-card">
+                        <div class="era-content" style="background: linear-gradient(to right, #15803d, #22c55e); opacity: 0.8;">
+                            <div class="era-header">
+                                <div>
+                                    <div class="era-year">2000-2019</div>
+                                    <div class="era-title">Эпоха Феррари и Мерседеса</div>
+                                </div>
+                                <div class="era-icon">🏆</div>
+                            </div>
+                            <div class="era-description">Михаэль Шумахер завоевал семь чемпионских титулов для Ferrari. Позже Льюис Хэмилтон и Mercedes образовали беспрецедентную династию.</div>
+                        </div>
+                    </div>
+                    <div class="era-card">
+                        <div class="era-content" style="background: linear-gradient(to right, #581c87, #a855f7); opacity: 0.8;">
+                            <div class="era-header">
+                                <div>
+                                    <div class="era-year">2020-настоящее время</div>
+                                    <div class="era-title">Гибридное поколение</div>
+                                </div>
+                                <div class="era-icon">🏆</div>
+                            </div>
+                            <div class="era-description">Сложные гибридные силовые установки определяют современную Формулу-1. Новые правила направлены на обеспечение устойчивого развития при сохранении высокой производительности и конкурентного баланса.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <!-- Modern Era Section -->
-           <div id="modern" class="section-hidden">
-<h2>Формула-1 сегодня</h2>
-<div class="modern-grid">
-<div class="modern-card">
-<div class="modern-icon">⚡</div>
-<h3>Гибридная силовая установка</h3>
-<p>Современные автомобили Формулы-1 сочетают турбированные двигатели V6 с гибридной электрической системой, развивая мощность более 1050 лошадиных сил при сохранении целевых показателей топливной экономичности.</p>
-</div>
-<div class="modern-card">
-<div class="modern-icon">🌍</div>
-<h3>Глобальный охват</h3>
-<p>24 гонки на культовых трассах по всему миру, от улиц Монако до ночных гонок Сингапура и новых трасс, расширяющих границы автоспорта.</p>
-</div>
-<div class="modern-card modern-card-full">
-<div class="modern-icon">♻️</div>
-<h3>Устойчивое развитие и инновации</h3>
-<p>«Формула-1» стремится к достижению углеродной нейтральности к 2030 году, используя экологичное топливо, инновационные материалы и технологические достижения, чтобы вести автоспортивную индустрию к более экологичному будущему.</p>
-</div>
-</div>
-</div>
+            <div id="modern" class="section-hidden">
+                <h2>Формула 1 сегодня</h2>
+                <div class="modern-grid">
+                    <div class="modern-card">
+                        <div class="modern-icon">⚡</div>
+                        <h3>Гибридная мощность</h3>
+                        <p>Современные автомобили Формулы-1 сочетают в себе турбированные двигатели V6 с гибридными электрическими системами, что позволяет выдавать более 1050 лошадиных сил при сохранении целевых показателей топливной экономичности.</p>
+                    </div>
+                    <div class="modern-card">
+                        <div class="modern-icon">🌍</div>
+                        <h3>Глобальный охват</h3>
+                        <p>24 гонки на культовых трассах по всему миру: от улиц Монако до ночных гонок Сингапура и новых трасс, расширяющих границы автоспорта.</p>
+                    </div>
+                    <div class="modern-card modern-card-full">
+                        <div class="modern-icon">♻️</div>
+                        <h3>Устойчивое развитие и инновации</h3>
+                        <p>«Формула-1» стремится к достижению углеродной нейтральности к 2030 году, используя экологически чистые виды топлива, инновационные материалы и технологический прогресс, чтобы вести автоспортивную индустрию к более экологичному будущему.</p>
+                    </div>
+                </div>
+            </div>
 
-         <!-- Раздел «Хронология» -->
-<div id="timeline" class="section-hidden">
-<h2>Ключевые вехи</h2>
-<div class="timeline-list">
-<div class="timeline-item">
-<div class="timeline-year">1950</div>
-<div class="timeline-content">
-<div class="timeline-event">Первый чемпионат мира Формулы-1 в Сильверстоуне</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-year">1961</div>
-<div class="timeline-content">
-<div class="timeline-event">Объём двигателя уменьшен до 1,5 л; Появляются новые требования к безопасности</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-year">1977</div>
-<div class="timeline-content">
-<div class="timeline-event">Начинается революция в области экранного эффекта и аэродинамики</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-year">1994</div>
-<div class="timeline-content">
-<div class="timeline-event">Трагическая авария Сенны подчеркивает необходимость повышения безопасности</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-year">2009</div>
-<div class="timeline-content">
-<div class="timeline-event">Внедрение системы рекуперации кинетической энергии (KERS)</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-year">2014</div>
-<div class="timeline-content">
-<div class="timeline-event">Дебют гибридных силовых установок; возвращение турбокомпрессоров</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-year">2022</div>
-<div class="timeline-content">
-<div class="timeline-event">Автомобили нового поколения и радикальные изменения в регулировании</div>
-</div>
-</div>
-<div class="timeline-item">
-<div class="timeline-year">2024</div>
-<div class="timeline-content">
-<div class="timeline-event">Упор на устойчивое развитие и конкурентный баланс продолжается</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+            <div id="timeline" class="section-hidden">
+                <h2>Ключевые вехи</h2>
+                <div class="timeline-list">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1950</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Первый чемпионат мира Формулы-1 в Сильверстоуне</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1961</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Объем двигателя уменьшен до 1,5 л; появились новые соображения безопасности</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1977</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Начало революции в области экранного эффекта и аэродинамики</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">1994</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Трагическая авария Сенны подчеркивает необходимость улучшения безопасности</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2009</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Внедрена система рекуперации кинетической энергии (KERS)</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2014</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Дебют гибридных силовых установок; возвращение турбокомпрессоров</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Автомобили нового поколения и радикальные изменения в правилах</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Продолжается фокус на устойчивое развитие и конкурентный баланс</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <!-- Footer -->
+            <div id="fans" class="section-hidden">
+                <h2>Опросы и статистика</h2>
+                
+                <div class="survey-grid">
+                    
+                    <div class="survey-card">
+                        <h3 class="survey-question">Участвуете ли вы в обсуждениях Формулы 1 в социальных сетях?</h3>
+                        <p class="survey-responses">31 ответ</p>
+                        
+                        <div class="chart-container">
+                            <svg class="pie-chart" viewBox="0 0 200 200">
+                                <circle cx="100" cy="100" r="80" fill="#1e293b"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#22c55e" stroke-width="80"
+                                    stroke-dasharray="154 251"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#f59e0b" stroke-width="80"
+                                    stroke-dasharray="49 251"
+                                    stroke-dashoffset="-154"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#ef4444" stroke-width="80"
+                                    stroke-dasharray="24 251"
+                                    stroke-dashoffset="-203"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#3b82f6" stroke-width="80"
+                                    stroke-dasharray="24 251"
+                                    stroke-dashoffset="-227"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #3b82f6;"></div>
+                                <span class="legend-label">Часто</span>
+                                <span class="legend-percentage">9.7%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #ef4444;"></div>
+                                <span class="legend-label">Иногда</span>
+                                <span class="legend-percentage">9.7%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #f59e0b;"></div>
+                                <span class="legend-label">Редко</span>
+                                <span class="legend-percentage">19.4%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #22c55e;"></div>
+                                <span class="legend-label">Никогда</span>
+                                <span class="legend-percentage">61.3%</span>
+                            </div>
+                        </div>
+                        
+                    </div> <div class="survey-card">
+                        <h3 class="survey-question">Ваш пол</h3>
+                        <p class="survey-responses">31 ответ</p>
+                        
+                        <div class="chart-container">
+                            <svg class="pie-chart" viewBox="0 0 200 200">
+                                <circle cx="100" cy="100" r="80" fill="#1e293b"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#3b82f6" stroke-width="80"
+                                    stroke-dasharray="170 251"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#ef4444" stroke-width="80"
+                                    stroke-dasharray="81 251"
+                                    stroke-dashoffset="-170"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                            </svg>
+                        </div>
+    
+                        <div class="legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #3b82f6;"></div>
+                                <span class="legend-label">Мужчина</span>
+                                <span class="legend-percentage">67.7%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #ef4444;"></div>
+                                <span class="legend-label">Женщина</span>
+                                <span class="legend-percentage">32.3%</span>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+
+                    <div class="survey-card">
+                        <h3 class="survey-question">Как вы узнали о Формуле-1?</h3>
+                        <p class="survey-responses">31 ответ</p>
+                        
+                        <div class="chart-container">
+                            <svg class="pie-chart" viewBox="0 0 200 200">
+                                <circle cx="100" cy="100" r="80" fill="#1e293b"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#f59e0b" stroke-width="80"
+                                    stroke-dasharray="105 251"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#22c55e" stroke-width="80"
+                                    stroke-dasharray="49 251"
+                                    stroke-dashoffset="-105"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#3b82f6" stroke-width="80"
+                                    stroke-dasharray="49 251"
+                                    stroke-dashoffset="-154"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#ef4444" stroke-width="80"
+                                    stroke-dasharray="48 251"
+                                    stroke-dashoffset="-203"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                            </svg>
+                        </div>
+    
+                        <div class="legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #f59e0b;"></div>
+                                <span class="legend-label">Семья и друзья</span>
+                                <span class="legend-percentage">41.9%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #22c55e;"></div>
+                                <span class="legend-label">Фильмы, Игры</span>
+                                <span class="legend-percentage">19.4%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #3b82f6;"></div>
+                                <span class="legend-label">тв</span>
+                                <span class="legend-percentage">19.4%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #ef4444;"></div>
+                                <span class="legend-label">Соц. Сети</span>
+                                <span class="legend-percentage">19.4%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="survey-card">
+                        <h3 class="survey-question">Вы следите за Формулой 1?</h3>
+                        <p class="survey-responses">31 ответ</p>
+                        
+                        <div class="chart-container">
+                            <svg class="pie-chart" viewBox="0 0 200 200">
+                                <circle cx="100" cy="100" r="80" fill="#1e293b"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#22c55e" stroke-width="80"
+                                    stroke-dasharray="154 251"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#3b82f6" stroke-width="80"
+                                    stroke-dasharray="49 251"
+                                    stroke-dashoffset="-154"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#ef4444" stroke-width="80"
+                                    stroke-dasharray="32 251"
+                                    stroke-dashoffset="-203"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#f59e0b" stroke-width="80"
+                                    stroke-dasharray="16 251"
+                                    stroke-dashoffset="-235"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                            </svg>
+                        </div>
+    
+                        <div class="legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #22c55e;"></div>
+                                <span class="legend-label">Никогда</span>
+                                <span class="legend-percentage">61.3%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #3b82f6;"></div>
+                                <span class="legend-label">Часто</span>
+                                <span class="legend-percentage">19.4%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #ef4444;"></div>
+                                <span class="legend-label">Иногда</span>
+                                <span class="legend-percentage">12.9%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #f59e0b;"></div>
+                                <span class="legend-label">Редко</span>
+                                <span class="legend-percentage">6.4%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="survey-card">
+                        <h3 class="survey-question">Обсуждаете ли вы Формулу-1 с друзьями или семьей?</h3>
+                        <p class="survey-responses">31 ответ</p>
+                        
+                        <div class="chart-container">
+                            <svg class="pie-chart" viewBox="0 0 200 200">
+                                <circle cx="100" cy="100" r="80" fill="#1e293b"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#22c55e" stroke-width="80"
+                                    stroke-dasharray="129.5 251"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#f59e0b" stroke-width="80"
+                                    stroke-dasharray="64.8 251"
+                                    stroke-dashoffset="-129.5"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#ef4444" stroke-width="80"
+                                    stroke-dasharray="48.7 251"
+                                    stroke-dashoffset="-194.3"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#3b82f6" stroke-width="80"
+                                    stroke-dasharray="8 251"
+                                    stroke-dashoffset="-243"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                            </svg>
+                        </div>
+    
+                        <div class="legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #22c55e;"></div>
+                                <span class="legend-label">Никогда</span>
+                                <span class="legend-percentage">51.6%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #f59e0b;"></div>
+                                <span class="legend-label">Редко</span>
+                                <span class="legend-percentage">25.8%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #ef4444;"></div>
+                                <span class="legend-label">Иногда</span>
+                                <span class="legend-percentage">19.4%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #3b82f6;"></div>
+                                <span class="legend-label">Часто</span>
+                                <span class="legend-percentage">3.2%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="survey-card">
+                        <h3 class="survey-question">Влияет ли Формула 1 на молодежь?</h3>
+                        <p class="survey-responses">31 ответ</p>
+                        
+                        <div class="chart-container">
+                            <svg class="pie-chart" viewBox="0 0 200 200">
+                                <circle cx="100" cy="100" r="80" fill="#1e293b"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#22c55e" stroke-width="80"
+                                    stroke-dasharray="113.5 251"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#3b82f6" stroke-width="80"
+                                    stroke-dasharray="97.1 251"
+                                    stroke-dashoffset="-113.5"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#f59e0b" stroke-width="80"
+                                    stroke-dasharray="32.4 251"
+                                    stroke-dashoffset="-210.6"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#ef4444" stroke-width="80"
+                                    stroke-dasharray="8 251"
+                                    stroke-dashoffset="-243"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                            </svg>
+                        </div>
+    
+                        <div class="legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #22c55e;"></div>
+                                <span class="legend-label">Не знаю</span>
+                                <span class="legend-percentage">45.2%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #3b82f6;"></div>
+                                <span class="legend-label">Да</span>
+                                <span class="legend-percentage">38.7%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #f59e0b;"></div>
+                                <span class="legend-label">Не влияет</span>
+                                <span class="legend-percentage">12.9%</span>
+                            </div>
+                             <div class="legend-item">
+                                <div class="legend-color" style="background-color: #ef4444;"></div>
+                                <span class="legend-label">Нет</span>
+                                <span class="legend-percentage">3.2%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="survey-card">
+                        <h3 class="survey-question">Вы когда-нибудь занимались автоспортом?</h3>
+                        <p class="survey-responses">30 ответов</p>
+                        
+                        <div class="chart-container">
+                            <svg class="pie-chart" viewBox="0 0 200 200">
+                                <circle cx="100" cy="100" r="80" fill="#1e293b"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#f59e0b" stroke-width="80"
+                                    stroke-dasharray="117.2 251"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                                
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#ef4444" stroke-width="80"
+                                    stroke-dasharray="108.7 251"
+                                    stroke-dashoffset="-117.2"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+
+                                <circle cx="100" cy="100" r="40" fill="none" 
+                                    stroke="#3b82f6" stroke-width="80"
+                                    stroke-dasharray="25.1 251"
+                                    stroke-dashoffset="-225.9"
+                                    transform="rotate(-90 100 100)"
+                                    stroke-linecap="butt"/>
+                            </svg>
+                        </div>
+    
+                        <div class="legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #f59e0b;"></div>
+                                <span class="legend-label">Не интересуюсь</span>
+                                <span class="legend-percentage">46.7%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #ef4444;"></div>
+                                <span class="legend-label">Хочется попробовать</span>
+                                <span class="legend-percentage">43.3%</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background-color: #3b82f6;"></div>
+                                <span class="legend-label">Да, интересуюсь</span>
+                                <span class="legend-percentage">10%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="survey-card" style="grid-column: 1 / -1;">
+                        <h3 class="survey-question">Что вам больше всего нравится в Формуле-1?</h3>
+                        <p class="survey-responses">30 ответов (возможен множественный выбор)</p>
+                        
+                        <style>
+                            .bar-row { margin-bottom: 15px; }
+                            .bar-header { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 0.9rem; color: #d1d5db; }
+                            .bar-track { background: rgba(255,255,255,0.1); border-radius: 4px; height: 12px; overflow: hidden; }
+                            .bar-fill { height: 100%; background: linear-gradient(to right, #ef4444, #b91c1c); border-radius: 4px; transition: width 1s ease-out; }
+                        </style>
+
+                        <div class="bar-chart-container" style="margin-top: 20px;">
+                            
+                            <div class="bar-row">
+                                <div class="bar-header">
+                                    <span>Скорость и адреналин</span>
+                                    <span>46.7% (14)</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 46.7%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="bar-row">
+                                <div class="bar-header">
+                                    <span>Технологии и инновации</span>
+                                    <span>36.7% (11)</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 36.7%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="bar-row">
+                                <div class="bar-header">
+                                    <span>Командная работа</span>
+                                    <span>33.3% (10)</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 33.3%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="bar-row">
+                                <div class="bar-header">
+                                    <span>Личности водителей</span>
+                                    <span>30% (9)</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 30%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="bar-row">
+                                <div class="bar-header">
+                                    <span>Стратегия и видение</span>
+                                    <span>26.7% (8)</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 26.7%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="bar-row">
+                                <div class="bar-header">
+                                    <span>Другое</span>
+                                    <span>6.7% (2)</span>
+                                </div>
+                                <div class="bar-track">
+                                    <div class="bar-fill" style="width: 6.7%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="survey-card" style="grid-column: 1 / -1;">
+                        <h3 class="survey-question">Мнение: Как популяризировать Формулу-1 среди молодежи?</h3>
+                        <p class="survey-responses">Выбранные анонимные ответы</p>
+                        
+                        <style>
+                            .quotes-grid {
+                                display: grid;
+                                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+                                gap: 15px;
+                                margin-top: 20px;
+                            }
+                            .quote-box {
+                                background: rgba(255, 255, 255, 0.05);
+                                border-left: 4px solid #ef4444; 
+                                padding: 15px;
+                                border-radius: 0 8px 8px 0;
+                                font-style: italic;
+                                color: #e5e7eb;
+                                font-size: 0.95rem;
+                                transition: transform 0.2s;
+                            }
+                            .quote-box:hover {
+                                transform: translateX(5px);
+                                background: rgba(255, 255, 255, 0.08);
+                            }
+                            .quote-icon {
+                                color: #ef4444;
+                                font-size: 1.5rem;
+                                line-height: 1;
+                                margin-bottom: 5px;
+                                display: block;
+                            }
+                        </style>
+
+                        <div class="quotes-grid">
+                            <div class="quote-box">
+                                <span class="quote-icon">“</span>
+                                Нечего
+                            </div>
+
+                            <div class="quote-box">
+                                <span class="quote-icon">“</span>
+                                рассказывать про гонки
+                            </div>
+
+                            <div class="quote-box">
+                                <span class="quote-icon">“</span>
+                                Распространить
+                            </div>
+
+                            <div class="quote-box">
+                                <span class="quote-icon">“</span>
+                                Пррдвигать эту тему в медиа сферу
+                            </div>
+
+                            <div class="quote-box">
+                                <span class="quote-icon">“</span>
+                                Нет
+                            </div>
+
+                            <div class="quote-box">
+                                <span class="quote-icon">“</span>
+                                Хз
+                            </div>
+
+                            <div class="quote-box">
+                                <span class="quote-icon">“</span>
+                                Снять фильм
+                            </div>
+
+                            <div class="quote-box">
+                                <span class="quote-icon">“</span>
+                                Показать эпичные моменты во время гонки, мемы делать с Формулой-1
+                            </div>
+
+                            <div class="quote-box">
+                                <span class="quote-icon">“</span>
+                                Не знаю
+                            </div>
+
+                            <div class="quote-box">
+                                <span class="quote-icon">“</span>
+                                Рассказывать на сколько Ф1 захватывает дух
+                            </div>
+
+                            <div class="quote-box">
+                                <span class="quote-icon">“</span>
+                                Никак
+                            </div>
+
+                            <div class="quote-box">
+                                <span class="quote-icon">“</span>
+                                Рассказывать Друзьям
+                            </div>
+
+                            <div class="quote-box">
+                                <span class="quote-icon">“</span>
+                                Проводить соревнования в городах
+                            </div>
+
+                            <div class="quote-box">
+                                <span class="quote-icon">“</span>
+                                Представить новые гоночные трассы и провести демонстрацию с видеоиграми
+                            </div>
+
+                            <div class="quote-box">
+                                <span class="quote-icon">“</span>
+                                Реклама
+                            </div>
+                        </div>
+                    </div>
+                </div> </div>
+        </div>
+    </section>
+
     <footer>
         <p>Вершина автоспорта с 1950 года | Инновации на максимальной скорости</p>
     </footer>
 
     <script>
         const navButtons = document.querySelectorAll('.nav-btn');
-        const sections = document.querySelectorAll('[id="history"], [id="modern"], [id="timeline"]');
+        const sections = document.querySelectorAll('[id="history"], [id="modern"], [id="timeline"], [id="fans"]');
 
         navButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const sectionId = button.getAttribute('data-section');
                 
-                // Remove active class from all buttons
                 navButtons.forEach(btn => btn.classList.remove('active'));
                 
-                // Add active class to clicked button
                 button.classList.add('active');
                 
-                // Hide all sections
                 sections.forEach(section => {
                     section.classList.remove('section-visible');
                     section.classList.add('section-hidden');
                 });
                 
-                // Show selected section
                 const selectedSection = document.getElementById(sectionId);
                 selectedSection.classList.remove('section-hidden');
                 selectedSection.classList.add('section-visible');
